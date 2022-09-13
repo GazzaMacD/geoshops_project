@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
+<div class="m-home-banner">
+    <h1>Nearby Shops</h1>
+    {% if shops %}
+    <ul>
+        {% for shop in shops %}
+        <li>{{ shop.name }} : {{shop.distance}}</li>
+        {% endfor shops %}
+    </ul>
+    {% else %}
+        <p>Sorry there seem to be no shops at the moment</p>
+    {% endif %}
+</div>
+{% endblock content %}
+
+

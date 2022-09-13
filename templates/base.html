@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {% block title %}{% endblock title %} Geoshops
+    </title>
+    <meta
+      name="description"
+      content="{% block description %}Exciting stuff!{% endblock description %}"
+    />
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <link href="{% static 'styles/main.css' %}" rel="stylesheet" />
+    {% block stylesheets %}
+    <!-- Additional CSS -->
+    {% endblock stylesheets %} 
+    {% block social_media_tags %} 
+    {% endblock social_media_tags %} 
+    {% block top_scripts %} 
+    {% endblock top_scripts %}
+  </head>
+  <body class="m-body">
+    {% block header %} 
+    {% endblock header %}
+    <!-- Wrap -->
+    <main class="m-content" >
+      {% block content %} 
+      {% endblock content %}
+      <!-- END Wrap -->
+    </main>
+    <!-- Footer -->
+    <footer class="m-footer">
+      {% block footer %} 
+      {% endblock footer %}
+      <!-- END Footer -->
+    </footer>
+    <!-- Modals -->
+    {% block modals %} 
+    {% endblock modals %} 
+    {% block bottom_scripts %} 
+    {% endblock bottom_scripts %}
+  </body>
+</html>

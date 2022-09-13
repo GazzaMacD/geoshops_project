@@ -38,6 +38,9 @@ coverage.xml
 # Environment 
 venv_geoshops/
 
+# Project
+.project_files/
+
 
 # Visual Studio Code # 
 .vscode/* 
