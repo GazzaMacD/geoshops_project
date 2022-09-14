@@ -13,6 +13,34 @@
         <p>Sorry there seem to be no shops at the moment</p>
     {% endif %}
 </div>
+<div id="mapid">
+    
+</div>
 {% endblock content %}
+
+{% block bottom_scripts %} 
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+const map = L.map("mapid").setView([39.29044, -76.61233], 17);
+
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+L.marker([39.29044, -76.61233]).addTo(map).bindPopup("Me").openPopup();
+
+{% for shop in shops %}
+L.circle([{{ shop.location.y }}, {{ shop.location.x }}], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(map).bindPopup("{{ shop.name }}");
+{% endfor %}
+
+
+</script>
+{% endblock bottom_scripts %}
 
 
